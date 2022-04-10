@@ -1,28 +1,24 @@
 {% extends "layout.html.twig" %}
 {% block content %}
 
-	{% for v in products|slice(0,3) %}
-		{{products[loop.index0]}}
-	{% endfor %}.
-	<br>
-	{% for v in products|slice(3,3) %}
-		{{v}}
-	{% endfor %}.
-	{{dump(products)}}
-	<!-- </body>
-					    <body>
-					        <h1>Products available!</h1>
-					        <table>
-					            {% for row in products|batch(3) %}
-					                <tr>
-					                    {% for product in row %}
-					                        <td>{{ product }}</td>
-					                    {% endfor %}
-					                </tr>
-					            {% endfor %}
-					        </table>
-					
-					        {{ dump(products) }}
-					    </body>
-					 -->
+	{# 	{% for product in products|slice(0,3) %}
+					{% include "_cards.html.twig" %}
+				{% endfor %}.
+				<br>
+				{% for product in products|slice(3,3) %}
+					{% include "_cards.html.twig" %}
+				{% endfor %}.
+				{{dump(products)}}
+			 #}
+
+	{% for row in products|batch(3) %}
+
+		{% for product in row %}
+			{% include "_cards.html.twig" %}
+
+		{% endfor %}
+
+	{% endfor %}
+
+
 {% endblock %}
