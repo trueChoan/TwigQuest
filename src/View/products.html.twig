@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
 
-<body>
+	<body>
 
-    {% for v in products|slice(0,3) %}
-    {{products[loop.index0]}}
-    {% endfor %}. <br>
-    {% for v in products|slice(3,3) %}
-    {{v}}
-    {% endfor %}.
-    {{dump(products)}}
-
-</body>
-
+		{% for v in products|slice(0,3) %}
+			{{products[loop.index0]}}
+		{% endfor %}.
+		<br>
+		{% for v in products|slice(3,3) %}
+			{{v}}
+		{% endfor %}.
+		{{dump(products)}}
+		<!-- </body>
+				    <body>
+				        <h1>Products available!</h1>
+				        <table>
+				            {% for row in products|batch(3) %}
+				                <tr>
+				                    {% for product in row %}
+				                        <td>{{ product }}</td>
+				                    {% endfor %}
+				                </tr>
+				            {% endfor %}
+				        </table>
+				
+				        {{ dump(products) }}
+				    </body>
+				 -->
+	</body>
 </html>
